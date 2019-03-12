@@ -8,10 +8,10 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1RCkpGFgNAsDih2UqzcTG3s2_5vEBZtRh'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1KmGRY2jg4o45X-ZgKxc-wfVD9_xUMbVm'
 export_file_name = 'export.pkl'
 
-classes = ['normal', 'abnormal']
+classes = ['normal', 'call consultant']
 path = Path(__file__).parent
 
 app = Starlette()
