@@ -33,7 +33,7 @@ function analyze() {
                                             </div>`;
 
         }
-        el('analyze-button').innerHTML = 'Predict';
+        el('analyze-button').innerHTML = 'Analyze';
     }
 
     var fileData = new FormData();
