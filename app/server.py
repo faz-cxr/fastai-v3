@@ -53,8 +53,19 @@ async def analyze(request):
     data = await request.form()
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    # Get predictions
+    pred_1_class, indice, preds = learn.predict(img)
+    # Get best predictions
+    preds_sorted, idxs = preds.sort(descending=True)
+    # Get best 2 predictions - classes
+    pred_2_class = learn.data.classes[idxs[1]]
+    # Get best 2 predictions - probabilities
+    pred_1_prob = np.round(100*preds_sorted[0].item(),2)
+    pred_2_prob = np.round(100*preds_sorted[1].item(),2)
+
+    preds_best3 = [f'{pred_1_class} ({pred_1_prob}%)', f'{pred_2_class} ({pred_2_prob}%)']
+
+    return JSONResponse({'pred_1': str(preds_best3[0]), 'pred_2': str(preds_best3[1])})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
