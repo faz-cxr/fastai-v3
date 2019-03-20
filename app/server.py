@@ -8,10 +8,24 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1KmGRY2jg4o45X-ZgKxc-wfVD9_xUMbVm'
-export_file_name = 'export.pkl'
+# resnet34
+# export_file_url = 'https://drive.google.com/uc?export=download&id=1wRrX2mZ9acQzuzXRIngL_kGBsUbOo-c9'
+# export_file_name = 'resnet34.pkl'
 
-classes = ['normal', 'call consultant']
+# resnet50
+export_file_url = 'https://drive.google.com/uc?export=download&id=1DOjrzqcz0P4Yplleh9g_ETMT9qLVV3LX'
+export_file_name = 'resnet50.pkl'
+
+# resnet101
+# export_file_url = 'https://drive.google.com/uc?export=download&id=1rq2NuFYNZjAF4wjoStxuRwO_LXh5j6GO'
+# export_file_name = 'resnet101.pkl'
+
+# resnet152
+# export_file_url = 'https://drive.google.com/uc?export=download&id=1rdGplUVWLYUqe7OZ_cUVVcEl5ErO2rdq'
+# export_file_name = 'resnet152.pkl'
+
+classes = ['Cardiomegaly','No Finding','Emphysema','Effusion','Hernia','Nodule','Pneumothorax','Atelectasis','Pleural_Thickening','Mass','Edema','Consolidation','Infiltration','Fibrosis','Pneumonia']
+
 path = Path(__file__).parent
 
 app = Starlette()
@@ -53,8 +67,21 @@ async def analyze(request):
     data = await request.form()
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    # Get predictions
+    pred_1_class, indice, preds = learn.predict(img)
+    # Get best predictions
+    preds_sorted, idxs = preds.sort(descending=True)
+    # Get best 3 predictions - classes
+    pred_2_class = learn.data.classes[idxs[1]]
+    pred_3_class = learn.data.classes[idxs[2]]
+    # Get best 3 predictions - probabilities
+    pred_1_prob = np.round(100*preds_sorted[0].item(),2)
+    pred_2_prob = np.round(100*preds_sorted[1].item(),2)
+    pred_3_prob = np.round(100*preds_sorted[2].item(),2)
+
+    preds_best3 = [f'{pred_1_class} ({pred_1_prob}%)', f'{pred_2_class} ({pred_2_prob}%)', f'{pred_3_class} ({pred_3_prob}%)']
+
+    return JSONResponse({'pred_1': str(preds_best3[0]), 'pred_2': str(preds_best3[1]), 'pred_3': str(preds_best3[2])})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
