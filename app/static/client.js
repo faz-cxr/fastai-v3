@@ -28,7 +28,7 @@ function analyze() {
             el('result-label').innerHTML = `<div class="result-style">
                                                 <div>
                                                     <span class="imagenet">${response['pred_1']}</span>
-                                                    <br /><span style='font-size: 0.9em'>${response['pred_2']}</span>
+                                                    <br /><span style='font-size: 0.9em'>${response['pred_2']} - ${response['pred_3']}</span>
                                                 </div>
                                             </div>`;
 
@@ -40,4 +40,3 @@ function analyze() {
     fileData.append('file', uploadFiles[0]);
     xhr.send(fileData);
 }
-
