@@ -10,7 +10,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="stylesheet" type="text/css" href="../static/style.css" media="screen, handheld" />
         <script src='../static/client.js'></script>
-        <title>X-ray Triaging by Dr. Faz</title>
+        <title>ImageNet Classifier by Pierre Guillou</title>
     </head>
      
     <body>
@@ -26,8 +26,8 @@
                         <img src='../static/images/logo_imagenet.jpg'>
                     </a>
                 </div>
-                <h1>Take a cropped x-ray image
-                    <br />Triage it
+                <h1>Take a picture
+                    <br />Classify it
                 </h1>
             </header>
         </div>
@@ -62,12 +62,15 @@
         <div class="section notes">
                     <p>
                         [ WARNINGS ]
-                        <br />This Web App is a prototype of an image classifier trained on ~6000 x-ray images. 
+                        <br />This Web App is a prototype of an image classifier. It classifies an image into 1000 categories (<a href='https://www.kaggle.com/c/imagenet-object-localization-challenge/data' target='_blank' title="Download file LOC_synset_mapping.txt">list in the ImageNet Kaggle competition</a>) displaying the 3 most probable ones with their respective probabilities. 
+                        <br />It uses the <a href='https://pytorch.org/docs/stable/torchvision/models.html#torchvision.models.resnet50' target='_blank'>resnet50 layers version</a> of the Deep Learning model that won the ImageNet competition in 2015 (<a href='http://image-net.org/challenges/LSVRC/2015/' target='_blank'>ILSVRC2015</a>).
+                        <br />As a prototype, this Web App could run slowly and as the ImageNet model has been trained with 1000 categories, some pictures could not be well labeled (for example, the mango category does not belong to these 1000 classes).
                     </p>
         </div>
 
         <div class='section footer'>
-          <p>Created by Dr. Faz<a </p>
+          <p>Created by <a href="https://www.linkedin.com/in/pierreguillou" title="profile Linkedin of Pierre Guillou" target="_blank">Pierre Guillou</a> (Jan. 2019)
+          <br />with <a href="https://docs.fast.ai/" target="_blank">fastai v1</a> and <a href="https://www.render.com/" target="_blank">Render</a></p>
         </div>
 
     </div> <!-- end page -->
