@@ -1,46 +1,76 @@
+<!DOCTYPE html>
 <html lang='en'>
-<head>
-    <meta charset='utf-8'>
-    <link rel='stylesheet' href='../static/style.css'>
-    <script src='../static/client.js'></script>
-</head>
-<body>
-<div>
-    <div class='center'>
-        <div class='title'>Should I call the consultant? 🤔</div>
-        <p>
-            Use cropped images of <strong>chest x-rays</strong> to triage them as <strong>normal</strong> or, <strong>call consultant</strong> 
-        </p>
-        <p>
-            based on an unfinished computer vision model trained on ~6000 x-rays.
-        </p>
-        <p>
-            PS - When in doubt, call the consultant.
-        </p>
-        <div class='content'>
-            <div class='no-display'>
-                <input id='file-input'
-                       class='no-display'
-                       type='file'
-                       name='file'
-                       accept='image/*'
-                       onchange='showPicked(this)'>
-            </div>
-            <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-            <div class='upload-label'>
-                <label id='upload-label'>No file chosen</label>
-            </div>
-            <div>
-                <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-            </div>
-            <div class='analyze'>
-                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-            </div>
-            <div class='result-label'>
-                <label id='result-label'></label>
-            </div>
+
+    <head>
+        <meta charset='UTF-8'/>
+        <!-- <meta name='viewport' content='width=device-width, initial-scale=1.0' /> -->
+        <meta name="viewport" content="user-scalable=no, width=device-width" />
+        <meta name="HandheldFriendly" content="true">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link rel="stylesheet" type="text/css" href="../static/style.css" media="screen, handheld" />
+        <script src='../static/client.js'></script>
+        <title>X-ray Triaging by Dr. Faz</title>
+    </head>
+     
+    <body>
+
+    <div class='page'>
+
+        <div class='section menu'></div>
+
+        <div class='section header'>
+            <header class='top-header'>
+                <div>
+                    <a href='http://image-net.org/' target='_blank' title='Site of ImageNet'>
+                        <img src='../static/images/logo_imagenet.jpg'>
+                    </a>
+                </div>
+                <h1>Take a cropped x-ray image
+                    <br />Triage it
+                </h1>
+            </header>
         </div>
-    </div>
-</div>
-</body>
+
+        <div class='section content'>
+
+                <div class='main center'>
+                    <div class='no-display'>
+                        <input id='file-input'
+                                class='no-display'
+                                type='file'
+                                name='file'
+                                accept='image/*'
+                                onchange='showPicked(this)'>
+                    </div>
+                    <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+                    <div class='analyze'>
+                        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+                    </div>
+                    <div class='result-label'>
+                        <label id='result-label'></label>
+                    </div>
+                    <div class="image-picked">
+                        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+                    </div>
+                    <div class='upload-label'>
+                        <label id='upload-label' class='center'>No file chosen</label>
+                    </div>
+                </div>
+        </div>
+
+        <div class="section notes">
+                    <p>
+                        [ WARNINGS ]
+                        <br />This Web App is a prototype of an image classifier trained on ~6000 x-ray images. 
+                    </p>
+        </div>
+
+        <div class='section footer'>
+          <p>Created by Dr. Faz<a </p>
+        </div>
+
+    </div> <!-- end page -->
+
+  </body>
 </html>
