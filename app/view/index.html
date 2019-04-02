@@ -10,7 +10,7 @@
 <body>
     <div>
         <div class='center'>
-            <div class='title'>Should I call the consultant? 🤔</div>
+            <div class='title'>Should I call the consultant?</div>
             <p>
                 Use cropped images of <strong>chest x-rays</strong> to triage them and look for <strong>opacities</strong> and <strong>other abnormalities</strong>
             </p>
@@ -23,7 +23,7 @@
                 </div>
                 <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
                 <div class='upload-label'>
-                    <label id='upload-label'>No file chosen</label>
+                    <label id='upload-label'><img src='../static/images/xray.png' height="200"></label>
                 </div>
                 <div class='result-label'>
                     <label id='result-label'></label>
@@ -39,10 +39,7 @@
     </div>
 </body>
 <footer>
-    <p> </p>
     <p>
         Trained using <a href="https://www.fast.ai">Fastai-v3</a> and <a href="https://pubs.rsna.org/doi/abs/10.1148/ryai.2019180041?journalCode=ai">dataset from RSNA (Radiological Society of North America)</a>
     </p>
-</footer>
-
-</html>
+</footer></html>
