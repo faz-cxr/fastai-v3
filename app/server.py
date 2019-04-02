@@ -8,7 +8,7 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1pBAi2RJyR-nymlcyv0Jah5f3SCp2YP4f'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1CWPaK3wg16Db-_YK_rjN-1wF6rdsCCsI'
 export_file_name = 'export.pkl'
 
 classes = ['normal', 'call consultant']
