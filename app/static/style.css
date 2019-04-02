@@ -1,5 +1,5 @@
-body {
-    background-image: linear-gradient(to bottom right, #B7F7F5, #977CE4);
+.body {
+    background-image: linear-gradient(to bottom right, #FCFEEA, #EEABBD);
 }
 
 .no-display {
@@ -12,7 +12,7 @@ body {
     padding-left:50px;
     padding-right:50px;
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .title {
@@ -38,42 +38,42 @@ body {
 .result-label {
     margin-top: 0.5em;
     padding: 10px;
-    font-size: 13px;
+    font-size: 18px;
 }
 
-button.choose-file-button {
-  width: 200px;
-  height: 40px;
+.button.choose-file-button {
+  width: 250px;
+  height: 50px;
   border-radius: 2px;
   background-color: #ffffff;
   border: solid 1px #7052CB;
-  font-size: 13px;
+  font-size: 15px;
   color: #7052CB;
 }
 
-button:hover {
+.button:hover {
   background-color: #7052CB;
   color: white;
 }
 
-button.analyze-button {
-    width: 200px;
-    height: 40px;
+.button.analyze-button {
+    width: 250px;
+    height: 50px;
     border: solid 1px #7052CB;
     border-radius: 2px;
     background-color: #7052CB;
-    font-size: 13px;
+    font-size: 15px;
     color: #ffffff;
     opacity: 0.6;
     transition: 0.3s;
 }
 
-button:focus {outline:0;}
-button:hover {opacity: 1}
+.button:focus {outline:0;}
+.button:hover {opacity: 1}
 
-footer {
+.footer {
     text-align: center;
     text-decoration-color: blue;
-    font-size: 10px;
+    font-size: 12px;
     
 }
