@@ -1,4 +1,4 @@
-.body {
+body {
     background-image: linear-gradient(to bottom right, #FCFEEA, #EEABBD);
 }
 
@@ -9,8 +9,8 @@
 .center {
     margin: auto;
     padding: 10px;
-    padding-left:50px;
-    padding-right:50px;
+    padding-left: 50px;
+    padding-right: 50px;
     text-align: center;
     font-size: 18px;
 }
@@ -41,22 +41,22 @@
     font-size: 18px;
 }
 
-.button.choose-file-button {
-  width: 250px;
-  height: 50px;
-  border-radius: 2px;
-  background-color: #ffffff;
-  border: solid 1px #7052CB;
-  font-size: 15px;
-  color: #7052CB;
+button.choose-file-button {
+    width: 250px;
+    height: 50px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px #7052CB;
+    font-size: 15px;
+    color: #7052CB;
 }
 
-.button:hover {
-  background-color: #7052CB;
-  color: white;
+button:hover {
+    background-color: #7052CB;
+    color: white;
 }
 
-.button.analyze-button {
+button.analyze-button {
     width: 250px;
     height: 50px;
     border: solid 1px #7052CB;
@@ -68,12 +68,17 @@
     transition: 0.3s;
 }
 
-.button:focus {outline:0;}
-.button:hover {opacity: 1}
+button:focus {
+    outline: 0;
+}
 
-.footer {
+button:hover {
+    opacity: 1
+}
+
+footer {
     text-align: center;
     text-decoration-color: blue;
     font-size: 12px;
-    
+
 }
