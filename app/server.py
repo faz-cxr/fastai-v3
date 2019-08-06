@@ -1,3 +1,4 @@
+
 import aiohttp
 import asyncio
 import uvicorn
@@ -9,10 +10,10 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1pBAi2RJyR-nymlcyv0Jah5f3SCp2YP4f'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1KmGRY2jg4o45X-ZgKxc-wfVD9_xUMbVm'
 export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['normal', 'call consultant']
 path = Path(__file__).parent
 
 app = Starlette()
